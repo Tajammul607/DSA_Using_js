@@ -151,4 +151,3 @@ let LL=new LinkedList(node1);
 
 console.log(LL.head.next.data)
 
-
