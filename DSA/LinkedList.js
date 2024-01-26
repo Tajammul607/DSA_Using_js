@@ -40,7 +40,78 @@ class LinkedList{
     getFirst(){
         return this.head
     }
+    
+    lengthOfLL(head){
+        let current=head;
+        let count=0;
+        while (current !=null){
+            count++;
+            current=current.next
+        }
+        return count;
+    }
 }
+
+// function lengthRecursive(node) {
+//     if (node === null) {
+//       return 0;
+//     } else {
+//       return 1 + lengthRecursive(node.next);
+//     }
+//   }
+
+
+function findTheEleLL(data){
+    let current =this.head;
+    while(current){
+        if(current.data==data){
+            return true
+        }
+        current=current.next
+    }
+
+    return false;
+}
+
+// function countNumberOccurance(data){
+//     let node=this.head;
+//     let count=0;
+//     while(node){
+//         if(node.data==data){
+//             count++;
+//         }
+//         current=current.next;
+//     }
+
+//     return count
+// }
+
+function deleteEleLL(data){
+    let current=this.head;
+   let prev=null;
+   while(current){
+    if(current.data=== data){
+        if(prev){
+            this.prev=current.next
+        }else{
+            this.head=current.next
+        }
+
+        break;
+    }
+    prev=current;
+    current=current.next
+
+   }
+   return this.head
+}
+
+
+
+
+
+
+
 
 
 
@@ -54,7 +125,7 @@ class LinkedList{
         prev=current;
         current=next;
     }
-     this.head=prev
+    
   }
   /**
  * Step	Description	
@@ -70,9 +141,11 @@ class LinkedList{
 10	Update the head of the list to prev	
  */
 
-let node1=new Node(10);
-let node2=new Node(20);
-node1.next=node2
+
+
+// let node1=new Node(10);
+// let node2=new Node(20);
+// node1.next=node2
 
 let LL=new LinkedList(node1);
 
