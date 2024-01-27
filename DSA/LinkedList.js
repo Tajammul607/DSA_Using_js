@@ -106,7 +106,7 @@ function deleteEleLL(data){
    return this.head
 }
 
-function insertNodeAtPosition(head, data, position) {
+function mergeTwoList(head, data, position) {
     // Create the new node
     let newNode = new Node(data);
   
