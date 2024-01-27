@@ -106,14 +106,69 @@ function deleteEleLL(data){
    return this.head
 }
 
+function insertNodeAtPosition(head, data, position) {
+    // Create the new node
+    let newNode = new Node(data);
+  
+    // Handle insertion at the head (position 0)
+    if (position === 0) {
+      newNode.next = head;
+      return newNode; // Update the head
+    }
+  
+    // Traverse to the insertion position
+    let current = head;
+    let count = 1;
+    while (current && count < position) {
+      current = current.next;
+      count++;
+    }
+  
+    // Check for out-of-bounds position
+    if (!current) {
+      return head; // Position invalid, return original head
+    }
+  
+    // Insert the node
+    newNode.next = current.next;
+    current.next = newNode;
+  
+    // Return the (potentially updated) head
+    return head;
+  }
 
+  function mergeTwoList(head1 , head2){
+    let dummyHead=new Node();
+    let tail=dummyHead;
 
+    while(head1 && head2){
+        if(head1.data<head2.data){
+            tail.next=head1;
+            head1=head1.next
+        }else{
+            tail.next=head2;
+            head2=head2.next
+        }
 
+        tail= tail.next
+    }
 
+    tail.next=head1 || head2;  // append the remaining nodes
 
+    return dummyHead.head // return the actual merge list
+  }
 
+  function findMiddleNode(head) {
+    let slow = head;
+    let fast = head;
 
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
 
+    return slow; // slow points to the middle node
+}
 
 
   const reverseLinkedList=() =>{
